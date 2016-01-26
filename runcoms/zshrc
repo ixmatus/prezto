@@ -13,11 +13,14 @@ fi
 # Customize to your needs...
 autoload -Uz promptinit
 promptinit
-prompt minimal
+prompt parnell
 
 autoload colors; colors;
 
 export PATH=${HOME}/.cabal/bin:$PATH
+export PATH=${HOME}/Programming/android-studio/bin:$PATH
+
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
 
 LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32";
 LSCOLORS="ExGxFxDxCxDxDxhbhdacEc";
@@ -56,9 +59,34 @@ alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias ec=emacsclient
 alias rm="trash-rm"
 
+# Make an org-protocol alias
+alias todo="/usr/bin/emacsclient org-protocol:/capture:/t/TODO"
+
 # The next line updates PATH for the Google Cloud SDK.
 source /home/parnell/.google-cloud-sdk/path.zsh.inc
 
 # The next line enables bash completion for gcloud.
 source /home/parnell/.google-cloud-sdk/completion.zsh.inc
 
+# Export Plum's AWS keys
+export AWS_ACCESS_KEY=AKIAJ4KCBA2KKHJQN5TQ
+export AWS_SECRET_KEY=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
+
+# Activate virtualenvwrapper
+export WORKON_HOME=/media/parnell/Tardis/.venvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Setup zsh-autosuggestions
+# source ~/.zsh-autosuggestions/autosuggestions.zsh
+
+# # Enable autosuggestions automatically
+# zle-line-init() {
+#     zle autosuggest-start
+# }
+# zle -N zle-line-init
+
+# # use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
+# # zsh-autosuggestions is designed to be unobtrusive)
+# bindkey '^T' autosuggest-toggle
+
+# export AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=85, 85, 255'
